@@ -7,12 +7,14 @@ class AccessTokenV2 {
   final int? expiresIn;
   final String? accessToken;
   final String? scope;
+  final String? refreshToken;
 
   AccessTokenV2(Map<String, dynamic> params)
       : this.tokenType = params.get<String>('token_type'),
         this.expiresIn = params.get<int>('expires_in'),
         this.accessToken = params.get<String>('access_token'),
-        this.scope = params.get<String>('scope');
+        this.scope = params.get<String>('scope'),
+        this.refreshToken = params.get<String>('refresh_token');
 
   Map<String, dynamic> toJson() {
     return {
@@ -20,6 +22,7 @@ class AccessTokenV2 {
       'expiresIn': expiresIn,
       'accessToken': accessToken,
       'scope': scope,
+      'refreshToken': refreshToken,
     };
   }
 
